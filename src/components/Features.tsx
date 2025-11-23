@@ -1,61 +1,55 @@
-import { BookOpen, Users, Trophy, Lightbulb, Heart, Globe } from "lucide-react";
+import { BookOpen, Users, Shield, Laptop, Heart, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
     icon: BookOpen,
     title: "Student-Centered Learning",
-    description: "Modern teaching methods focused on individual growth and development",
-    gradient: "from-primary/20 via-primary/10 to-transparent"
+    description: "Interactive, activity-based teaching focused on concept understanding rather than rote memorization.",
+    color: "primary",
   },
   {
     icon: Users,
     title: "Expert Faculty",
-    description: "Highly qualified and caring teachers dedicated to student success",
-    gradient: "from-accent/20 via-accent/10 to-transparent"
+    description: "Highly qualified and caring teachers committed to teaching with empathy, innovation, and dedication.",
+    color: "accent",
   },
   {
-    icon: Trophy,
-    title: "Holistic Development",
-    description: "Academic excellence combined with sports, arts, and life skills",
-    gradient: "from-secondary/20 via-secondary/10 to-transparent"
+    icon: Shield,
+    title: "Safe Environment",
+    description: "Clean, secure campus with CCTV monitoring, first-aid support, and child-friendly facilities.",
+    color: "secondary",
   },
   {
-    icon: Lightbulb,
+    icon: Laptop,
     title: "Smart Classrooms",
-    description: "Technology-enabled learning with modern teaching aids",
-    gradient: "from-primary/20 via-primary/10 to-transparent"
+    description: "Digital and technology-based learning with audiovisual aids for enhanced understanding.",
+    color: "primary",
   },
   {
     icon: Heart,
-    title: "Safe Environment",
-    description: "Secure campus with CCTV monitoring and caring staff",
-    gradient: "from-accent/20 via-accent/10 to-transparent"
+    title: "Holistic Development",
+    description: "Focus on academic excellence, life skills, sports, arts, and character building.",
+    color: "accent",
   },
   {
-    icon: Globe,
-    title: "Global Standards",
-    description: "Curriculum aligned with international educational practices",
-    gradient: "from-secondary/20 via-secondary/10 to-transparent"
+    icon: Lightbulb,
+    title: "Innovation & Creativity",
+    description: "Encouraging critical thinking, problem-solving, and creative expression in every student.",
+    color: "secondary",
   },
 ];
 
 const Features = () => {
   return (
-    <section id="academics" className="py-28 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20 animate-fade-in max-w-3xl mx-auto">
-          <div className="inline-block px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            <span className="text-sm font-bold text-primary">Our Strengths</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
-            Why Choose <span className="gradient-text">Us</span>
+    <section className="py-24 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Why Choose <span className="gradient-text">New Horizen?</span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed font-medium">
-            Discover what makes New Horizen High School the perfect choice for your child's educational journey
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We provide a nurturing environment where every child can thrive academically, socially, and emotionally.
           </p>
         </div>
 
@@ -65,20 +59,19 @@ const Features = () => {
             return (
               <Card
                 key={index}
-                className="group hover:shadow-2xl transition-all duration-700 border-border/50 hover:border-primary/40 hover:-translate-y-3 animate-scale-in bg-card backdrop-blur-xl overflow-hidden relative"
+                className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 animate-scale-in bg-card/50 backdrop-blur-sm"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
-                
-                <CardContent className="p-8 relative z-10">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                    <Icon className="w-10 h-10 text-primary group-hover:text-accent transition-colors duration-500" />
+                <CardContent className="pt-8 pb-6 px-6">
+                  <div
+                    className={`inline-flex p-4 rounded-2xl mb-6 bg-${feature.color}/10 group-hover:bg-${feature.color}/20 transition-all duration-300 group-hover:scale-110`}
+                  >
+                    <Icon className={`w-8 h-8 text-${feature.color}`} />
                   </div>
-                  <h3 className="text-2xl font-black mb-4 text-foreground group-hover:gradient-text transition-all duration-500">
+                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-base font-medium">
+                  <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>
