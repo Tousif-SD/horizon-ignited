@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import AdmissionDialog from "./AdmissionDialog";
 
 const Contact = () => {
   return (
@@ -85,9 +86,11 @@ const Contact = () => {
                 <p className="mb-8 opacity-95 text-lg leading-relaxed">
                   Join us for the upcoming academic year. Limited seats available for Nursery to High School.
                 </p>
-                <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 font-bold px-8 py-6 text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                  Apply Now
-                </Button>
+                <AdmissionDialog>
+                  <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 font-bold px-8 py-6 text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    Apply Now
+                  </Button>
+                </AdmissionDialog>
               </div>
             </div>
           </div>
