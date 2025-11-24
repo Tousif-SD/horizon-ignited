@@ -50,15 +50,18 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(0 84% 50%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(0 84% 50%), hsl(142 71% 45%));
     
-    /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(48 100% 50% / 0.1);
-    --shadow-md: 0 8px 24px hsl(48 100% 50% / 0.15);
-    --shadow-lg: 0 16px 48px hsl(48 100% 50% / 0.2);
-    --shadow-glow: 0 0 40px hsl(48 100% 50% / 0.3);
+    /* Premium Shadows */
+    --shadow-sm: 0 2px 8px hsl(48 100% 50% / 0.08);
+    --shadow-md: 0 8px 24px hsl(48 100% 50% / 0.12);
+    --shadow-lg: 0 20px 60px hsl(48 100% 50% / 0.15);
+    --shadow-xl: 0 30px 80px hsl(48 100% 50% / 0.2);
+    --shadow-glow: 0 0 40px hsl(48 100% 50% / 0.25);
+    --shadow-glow-accent: 0 0 60px hsl(0 84% 50% / 0.2);
     
-    /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Premium Transitions */
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --radius: 0.75rem;
 
@@ -157,10 +160,31 @@ All colors MUST be HSL.
   }
 
   .glass {
-    @apply backdrop-blur-md bg-white/80 border border-white/20;
+    @apply backdrop-blur-xl bg-white/70 border border-white/30 shadow-xl;
   }
 
   .glass-dark {
-    @apply backdrop-blur-md bg-card/80 border border-border/20;
+    @apply backdrop-blur-xl bg-card/70 border border-border/30 shadow-xl;
+  }
+
+  .premium-card {
+    @apply relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl;
+  }
+
+  .premium-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity duration-500;
+  }
+
+  .premium-card:hover::before {
+    @apply opacity-100;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-6 md:px-8 lg:px-12;
   }
 }
