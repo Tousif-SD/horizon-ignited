@@ -60,25 +60,40 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {features.map((feature, index) => {
             const Icon = feature.icon;
+            const colorMap: Record<string, string> = {
+              primary: 'primary',
+              accent: 'accent',
+              secondary: 'secondary'
+            };
+            const colorClass = colorMap[feature.color];
+            
             return (
               <Card
                 key={index}
-                className="premium-card group border-2 hover:border-primary/40 animate-scale-in glass-dark overflow-visible"
+                className="premium-card group border-2 hover:border-primary/40 animate-scale-in glass-dark h-full"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <CardContent className="pt-10 pb-8 px-8 relative">
-                  <div className="absolute -top-6 left-8">
-                    <div className={`p-4 rounded-2xl bg-gradient-to-br from-${feature.color}/30 to-${feature.color}/10 shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 border border-${feature.color}/20`}>
-                      <Icon className={`w-7 h-7 text-${feature.color}`} />
+                <CardContent className="pt-12 pb-8 px-8 relative h-full flex flex-col">
+                  <div className="absolute -top-7 left-8">
+                    <div className={`p-5 rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 border-2 ${
+                      colorClass === 'primary' ? 'bg-gradient-to-br from-primary/30 to-primary/10 border-primary/30' :
+                      colorClass === 'accent' ? 'bg-gradient-to-br from-accent/30 to-accent/10 border-accent/30' :
+                      'bg-gradient-to-br from-secondary/30 to-secondary/10 border-secondary/30'
+                    }`}>
+                      <Icon className={`w-8 h-8 ${
+                        colorClass === 'primary' ? 'text-primary' :
+                        colorClass === 'accent' ? 'text-accent' :
+                        'text-secondary'
+                      }`} />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-extrabold mb-4 text-foreground group-hover:text-primary transition-colors mt-4">
+                  <h3 className="text-2xl font-extrabold mb-4 text-foreground group-hover:text-primary transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-base">
+                  <p className="text-muted-foreground leading-relaxed text-lg flex-1">
                     {feature.description}
                   </p>
                 </CardContent>
