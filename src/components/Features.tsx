@@ -1,5 +1,4 @@
 import { BookOpen, Users, Shield, Laptop, Heart, Lightbulb } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
@@ -42,62 +41,59 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="section-padding bg-gradient-to-b from-muted/20 via-muted/30 to-muted/20 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+    <section className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-30">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
+      </div>
       
       <div className="container-custom relative z-10">
-        <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-            <span className="text-sm font-bold text-primary">Our Strengths</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+        {/* Section Header */}
+        <div className="text-center mb-16 animate-fade-in">
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
+            Our Strengths
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Why Choose <span className="gradient-text">New Horizen?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             We provide a nurturing environment where every child can thrive academically, socially, and emotionally.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        {/* Features Grid - Fixed Alignment */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
-            const colorMap: Record<string, string> = {
-              primary: 'primary',
-              accent: 'accent',
-              secondary: 'secondary'
-            };
-            const colorClass = colorMap[feature.color];
             
             return (
-              <Card
+              <div
                 key={index}
-                className="premium-card group border-2 hover:border-primary/40 animate-scale-in glass-dark h-full"
+                className="group bg-card rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/30"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <CardContent className="pt-12 pb-8 px-8 relative h-full flex flex-col">
-                  <div className="absolute -top-7 left-8">
-                    <div className={`p-5 rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 border-2 ${
-                      colorClass === 'primary' ? 'bg-gradient-to-br from-primary/30 to-primary/10 border-primary/30' :
-                      colorClass === 'accent' ? 'bg-gradient-to-br from-accent/30 to-accent/10 border-accent/30' :
-                      'bg-gradient-to-br from-secondary/30 to-secondary/10 border-secondary/30'
-                    }`}>
-                      <Icon className={`w-8 h-8 ${
-                        colorClass === 'primary' ? 'text-primary' :
-                        colorClass === 'accent' ? 'text-accent' :
-                        'text-secondary'
-                      }`} />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-extrabold mb-4 text-foreground group-hover:text-primary transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg flex-1">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
+                {/* Icon */}
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 ${
+                  feature.color === 'primary' ? 'bg-primary/10' :
+                  feature.color === 'accent' ? 'bg-accent/10' :
+                  'bg-secondary/10'
+                }`}>
+                  <Icon className={`w-7 h-7 ${
+                    feature.color === 'primary' ? 'text-primary' :
+                    feature.color === 'accent' ? 'text-accent' :
+                    'text-secondary'
+                  }`} />
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             );
           })}
         </div>
