@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
+import AdmissionDialog from "./AdmissionDialog";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,9 +58,11 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <Button className="bg-gradient-hero hover:opacity-90 text-primary-foreground font-bold px-5">
-              Admissions Open
-            </Button>
+            <AdmissionDialog>
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5">
+                Admissions Open
+              </Button>
+            </AdmissionDialog>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -85,9 +88,11 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button className="bg-gradient-hero hover:opacity-90 text-primary-foreground font-bold mt-4">
-                Admissions Open
-              </Button>
+              <AdmissionDialog>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold mt-4">
+                  Admissions Open
+                </Button>
+              </AdmissionDialog>
             </nav>
           </div>
         )}
