@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 
@@ -25,67 +25,67 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "glass-dark shadow-xl py-3 backdrop-blur-xl"
-          : "bg-transparent py-5"
+          ? "bg-background/95 backdrop-blur-md shadow-md py-2"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
-          {/* Premium Logo */}
-          <a href="#home" className="flex items-center gap-4 group">
-            <div className="w-16 h-16 rounded-2xl overflow-hidden ring-4 ring-primary/20 group-hover:ring-primary/60 transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-3">
+          {/* Logo */}
+          <a href="#home" className="flex items-center gap-3">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden ring-2 ring-primary/20">
               <img src={logo} alt="New Horizen High School" className="w-full h-full object-cover" />
             </div>
-            <div className="hidden md:block">
-              <h1 className="text-xl font-extrabold text-foreground leading-tight group-hover:text-primary transition-colors duration-300">
+            <div className="hidden sm:block">
+              <h1 className="text-base sm:text-lg font-bold text-foreground leading-tight">
                 New Horizen High School
               </h1>
-              <p className="text-xs text-muted-foreground font-bold tracking-wide">Since 1999 - Knowledge Is Power</p>
+              <p className="text-xs text-muted-foreground">Knowledge Is Power</p>
             </div>
           </a>
 
-          {/* Premium Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="relative text-sm font-bold text-foreground hover:text-primary transition-all duration-500 after:content-[''] after:absolute after:w-0 after:h-1 after:bg-gradient-hero after:left-0 after:-bottom-2 after:transition-all after:duration-500 hover:after:w-full after:rounded-full"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </a>
             ))}
-            <Button size="lg" className="bg-gradient-hero hover:opacity-90 hover:scale-110 text-primary-foreground font-bold px-6 shadow-lg hover:shadow-xl transition-all duration-500">
+            <Button className="bg-gradient-hero hover:opacity-90 text-primary-foreground font-bold px-5">
               Admissions Open
             </Button>
           </nav>
 
-          {/* Premium Mobile Menu Button */}
+          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-3 rounded-xl hover:bg-muted/50 transition-all duration-300 hover:scale-110"
+            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={26} className="text-primary" /> : <Menu size={26} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Premium Mobile Menu */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 mt-4 glass-dark rounded-2xl shadow-2xl mx-6 p-8 animate-fade-in border-2 border-border/50">
-            <nav className="flex flex-col gap-5">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg">
+            <nav className="flex flex-col p-4">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-foreground hover:text-primary font-bold transition-all duration-300 py-3 px-4 rounded-xl hover:bg-primary/10 text-lg"
+                  className="text-foreground font-medium py-3 px-4 hover:bg-muted rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <Button className="bg-gradient-hero hover:opacity-90 hover:scale-105 text-primary-foreground font-bold py-6 text-lg shadow-lg transition-all duration-300">
+              <Button className="bg-gradient-hero hover:opacity-90 text-primary-foreground font-bold mt-4">
                 Admissions Open
               </Button>
             </nav>

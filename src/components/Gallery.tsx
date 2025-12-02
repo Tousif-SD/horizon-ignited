@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
 import graduation from "@/assets/graduation.png";
 import studentsGroup from "@/assets/students-group.png";
 import awareness from "@/assets/awareness-campaign.png";
@@ -31,34 +30,35 @@ const Gallery = () => {
       : galleryImages.filter((img) => img.category === selectedCategory);
 
   return (
-    <section id="gallery" className="section-padding bg-gradient-to-b from-muted/20 via-muted/30 to-background relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+    <section id="gallery" className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute top-1/4 right-0 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-block mb-4 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20">
-            <span className="text-sm font-bold text-secondary">Memories</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+        {/* Section Header */}
+        <div className="text-center mb-12 animate-fade-in">
+          <span className="inline-block px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold mb-4">
+            Memories
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Our <span className="gradient-text">Gallery</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Moments that define our journey of excellence and growth
           </p>
         </div>
 
-        {/* Premium Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-8 py-3 rounded-full font-bold transition-all duration-500 shadow-md ${
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? "bg-gradient-hero text-primary-foreground shadow-xl scale-110 -rotate-1"
-                  : "glass-dark hover:scale-105 text-foreground hover:shadow-lg"
+                  ? "bg-gradient-hero text-primary-foreground shadow-md"
+                  : "bg-card text-foreground hover:bg-muted border border-border/50"
               }`}
             >
               {category}
@@ -66,32 +66,30 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Premium Gallery Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {filteredImages.map((image, index) => (
-            <Card
+            <div
               key={index}
-              className="premium-card group overflow-hidden animate-scale-in border-2 border-border/50 hover:border-primary/30"
+              className="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300"
               style={{ animationDelay: `${index * 80}ms` }}
             >
-              <div className="relative overflow-hidden aspect-[4/3]">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={image.src}
                   alt={image.title}
-                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-1000"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs font-bold mb-3 shadow-lg">
-                      {image.category}
-                    </span>
-                    <h3 className="text-white font-extrabold text-xl leading-tight">{image.title}</h3>
-                  </div>
-                </div>
-                {/* Hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-            </Card>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                  <span className="inline-block px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-medium mb-2">
+                    {image.category}
+                  </span>
+                  <h3 className="text-white font-bold text-base sm:text-lg">{image.title}</h3>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
