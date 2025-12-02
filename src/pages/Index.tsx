@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Gallery />
       <Contact />
       <Footer />
+      <FloatingCTA />
     </div>
   );
 };
