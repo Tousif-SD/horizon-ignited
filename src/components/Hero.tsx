@@ -41,14 +41,14 @@ const Hero = () => {
       </div>
 
       <div className="container-custom py-24 md:py-32 lg:py-40 relative z-10" ref={ref}>
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
           {/* Left Content */}
           <div className={`space-y-6 text-center lg:text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-sm font-bold text-primary pulse-glow">
               Since 1999 - Knowledge Is Power
             </span>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight min-h-[120px] sm:min-h-[160px] md:min-h-[200px] lg:min-h-[220px]">
               <TypeWriter 
                 words={["Inspiring Minds.", "Building Leaders.", "Creating Futures."]} 
                 className="glow-text"
