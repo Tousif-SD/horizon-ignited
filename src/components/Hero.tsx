@@ -1,6 +1,6 @@
 import { ArrowRight, GraduationCap, Users, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import studentsImage from "@/assets/students-group.png";
+import graduationImage from "@/assets/graduation.png";
 
 const Hero = () => {
   return (
@@ -71,9 +71,10 @@ const Hero = () => {
           <div className="relative animate-fade-in hidden lg:block">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src={studentsImage}
-                alt="New Horizen Students"
-                className="w-full h-auto"
+                src={graduationImage}
+                alt="New Horizen Graduation Ceremony"
+                className="w-full h-auto object-cover"
+                loading="eager"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
