@@ -6,12 +6,16 @@ import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import ParticleBackground from "@/components/ParticleBackground";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <ParticleBackground />
       <Header />
       <Hero />
+      <AnimatedCounter />
       <Features />
       <About />
       <Gallery />
