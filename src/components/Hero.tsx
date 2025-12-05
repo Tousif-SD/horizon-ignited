@@ -67,18 +67,18 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="relative animate-fade-in hidden lg:block">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          {/* Right Image - Now visible on all screens */}
+          <div className="relative animate-fade-in order-first lg:order-last">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-sm lg:max-w-none">
               <img
                 src={graduationImage}
                 alt="New Horizen Graduation Ceremony"
-                className="w-full h-auto object-cover"
+                className="w-full h-48 sm:h-64 lg:h-auto object-cover"
                 loading="eager"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl -z-10" />
+            <div className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-6 w-20 lg:w-32 h-20 lg:h-32 bg-primary/20 rounded-full blur-2xl -z-10" />
+            <div className="absolute -top-4 -left-4 lg:-top-6 lg:-left-6 w-20 lg:w-32 h-20 lg:h-32 bg-accent/20 rounded-full blur-2xl -z-10" />
           </div>
         </div>
       </div>
